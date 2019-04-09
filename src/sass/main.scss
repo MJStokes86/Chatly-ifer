@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto'); 
+
+
+//The Variables
+
+$body-font: Roboto;
+$color-white: #fff;
+$color-black: #000;
+$auto-height: 100%;
+$auto-width: 100%;
+$main-color: #f3f3f3f3;
+$text-color: #333;
+$body-color: #eeeeee;
+
+
+
+// Setting the main HTML elements
+
+* {
+  margin: auto;
+ 
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+body {
+  background-color: $body-color;
+  font-family: $body-font;
+
+}
+
+section {
+  width: 850px;
+  height: $auto-height;
+  box-shadow: 0 15px 50px 0 rgba(0,0,0,0.13);
+  background-color: $color-white;
+  margin-top: 5%;
+
+
+}
+
+
+//Header 
+
+
+.header {
+
+    & li {
+      margin-top: 10%;
+    }
+
+    & .header-title {
+      width: 220px;
+      height: 14px;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: condensed;
+      line-height: normal;
+      letter-spacing: 3.9px;
+      color: $color-black;
+      text-transform: uppercase;
+      position: relative;
+      left: -6%;
+
+    }
+
+    & .header-date {
+      width: 240px;
+      height: 18px;
+      font-family: $body-font;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: right;
+      color: #9a9a9a;
+      position: relative;
+      right: -5%;
+    }
+
+
+}
+
+
+
+//The Line
+
+
+
+.line {
+  width: 750px;
+  height: 5px;
+  background-color: $body-color;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+
+
+
+//Chat Begins Here
+
+.chat-log {
+  margin-bottom: 5%
+}
+
+
+.message-box {
+  height: $auto-height;
+  width: 610px;
+  background-color: $main-color;
+  border-radius: 5px;   
+}
+
+//User 1 Message Box
+
+.user1 {
+  width: $auto-width;
+
+    & ul li.avatar img {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0,0,0,0);
+      position: relative;
+      top: -35px;
+      border-radius: 50%;
+    }
+
+    & .text-bottom .user-name {
+  width: 166px;
+  height: 18px;
+  font-family: $body-font;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #ff5d5d;
+}
+
+
+
+}
+
+//User 2 Message Box
+
+.user2 {
+  width: $auto-width;
+
+    & ul {
+
+    flex-direction: row-reverse;
+
+    }
+
+    & ul li.avatar img {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0,0,0,0);
+      position: relative;
+      top: -35px;
+      border-radius: 50%;
+    }
+
+    & .text-bottom .user-name {
+      
+      color: #5da2ff;
+}
+
+
+}
+
+
+
+// Message Chat Arrows //
+
+
+.chat_arrow_left {
+
+    &:before {
+      content: '';
+      height: 0;
+      position: absolute;
+      width: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent; 
+      border-right:10px solid $main-color;
+      right: 65.1%;
+      top: 37%;
+      display: block;
+    }
+
+    &:after {
+      content: '';
+      height: 0;
+      position: absolute;
+      width: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent; 
+      border-right:10px solid $main-color;
+      right: 65.1%;
+      top: 84%;
+      display: block;
+    }
+}
+
+
+
+
+
+.chat_arrow_right {
+
+     &:before {
+        content: '';
+        height: 0;
+        position: absolute;
+        width: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        border-left:10px solid $color-white;
+        left: 65.1%;
+        top: 60.5%;
+      }
+
+      &:after {
+        content: '';
+        height: 0;
+        position: absolute;
+        width: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        border-left:10px solid $main-color;
+        left: 64.9%;
+        top: 107.5%;
+  }
+
+}
+
+
+
+//Focused Message Box
+
+#focused .message-box {
+  box-shadow: 0 15px 50px 0 rgba(0,0,0,0.13);
+  background-color: $color-white;  
+}
+
+
+
+
+//Message Text 
+
+
+ .text {
+  
+  width: 557px;
+  height: 65px;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: $text-color;
+  position: relative;
+  top: 20px;
+  margin-bottom: 10%;
+}
+
+
+
+.text-bottom {
+  position: relative;
+  left: -11%;
+  top: -10px;
+
+   & .time {
+      width: 75px;
+      height: 9px;
+      font-family: $body-font;
+      font-size: 12px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 0;
+      letter-spacing: normal;
+      color: $text-color;
+
+}
+}
+
+// Timestamp and Clock
+  
+.timestamp {
+  position: relative;
+  left: -30%;
+}
+
+.clock-icon img {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0);
+  position: relative;
+  top: -4px;
+}
