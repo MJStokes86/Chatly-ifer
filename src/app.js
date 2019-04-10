@@ -1,4 +1,6 @@
 import './sass/main.scss';
+$(document).ready(function() {
+
 
 
 //Fetching API Data 
@@ -29,6 +31,7 @@ fetch('https://api.myjson.com/bins/1geede')
 			console.log(user.timestamp);
 
 
+
 		});
 
 
@@ -40,17 +43,20 @@ fetch('https://api.myjson.com/bins/1geede')
 		
 	const user1 = (focused, image, message, timestamp, username) =>  {
 
-		// if (focused == true) {
-		// 	document.querySelector("focused", ".message-box").setAttribute("style", "box-shadow: 0 15px 50px 0 rgba(0,0,0,0.13); background-color: #ffffff;");
+		
 
- 	// 	} else {
-		// 	document.querySelector(".message-box").setAttribute("style", "background-color: #f3f3f3f3;");
+		if (focused == true) {
+			$('#focused .message-box').css("box-shadow", "0 15px 50px 0 rgba(0,0,0,0.13)","background-color", "#ffffff");
 
- 	// 	}
+ 		} else {
+			$('#focused .message-box').css("background-color", "#f3f3f3f3");
+
+ 		}
+
 
  	//Appending the HTML to the DOM
 
- 		$('.chat').innerHTML += 
+ 	$('.chat').innerHTML += 
 
  		'<div class="chat-log user1">' +
  		'<ul>' +
@@ -84,18 +90,19 @@ fetch('https://api.myjson.com/bins/1geede')
 
 	const user2 = (focused, image, message, timestamp, username) => {
 		
-		// if (focused == true) {
-		// 	document.querySelector("focused", ".message-box").setAttribute("style", "box-shadow: 0 15px 50px 0 rgba(0,0,0,0.13); background-color: #ffffff;");
+		if (focused == true) {
+			$('#focused .message-box').css("box-shadow", "0 15px 50px 0 rgba(0,0,0,0.13)","background-color", "#ffffff");
 
- 	// 	} else {
-		// 	document.querySelector(".message-box").setAttribute("style", "background-color: #f3f3f3f3;");
+ 		} else {
+			$('#focused .message-box').css("background-color", "#f3f3f3f3");
 
- 	// 	}
+ 		}
+
 
  	//Appending the HTML to the DOM
 
 
- 		$('.chat').innerHTML += 
+ 	$('.chat').innerHTML += 
 
  		'<div class="chat-log user1">' +
  		'<ul>' +
@@ -160,15 +167,15 @@ fetch('https://api.myjson.com/bins/1geede')
 		let day = 'AM';
 
 		switch (time) {
-			case hour > 11 : day = 'PM';
+			case (hour > 11) : day = 'PM';
 			break;
-			case hour > 12 : hour = hour - 12;
+			case (hour > 12) : hour = hour - 12;
 			break;
-			case hour == 0 : hour = 12;
+			case (hour == 0) : hour = 12;
 			break;
-			case hour < 10 : hour = "0" + hour;
+			case (hour < 10) : hour = "0" + hour;
 			break;
-			case minute < 10 : minute = "0" + minute;
+			case (minute < 10) : minute = "0" + minute;
 			break;
 			
 		}
@@ -181,13 +188,13 @@ fetch('https://api.myjson.com/bins/1geede')
 
 	//Declaring $ for the innerHTML
 
-	const $ = (className) => {
-		return document.getElementsByClassName(className);
-	}
+	// const __ = (className) => {
+	// 	return document.getElementsByClassName(className);
+	// }
 
 
 
-
+});
 
 
 
