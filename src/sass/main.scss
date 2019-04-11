@@ -11,6 +11,8 @@ $auto-width: 100%;
 $main-color: #f3f3f3f3;
 $text-color: #333;
 $body-color: #eeeeee;
+$arrow-position: 64.1%;
+$border-solid-10: 10px solid;
 
 
 
@@ -35,7 +37,7 @@ body {
 }
 
 section {
-  width: 850px;
+  width: 860px;
   height: $auto-height;
   box-shadow: 0 15px 50px 0 rgba(0,0,0,0.13);
   background-color: $color-white;
@@ -66,7 +68,7 @@ section {
       color: $color-black;
       text-transform: uppercase;
       position: relative;
-      left: -6%;
+      left: -8%;
 
     }
 
@@ -83,7 +85,7 @@ section {
       text-align: right;
       color: #9a9a9a;
       position: relative;
-      right: -5%;
+      right: -8%;
     }
 
 
@@ -96,7 +98,7 @@ section {
 
 
 .line {
-  width: 750px;
+  width: 790px;
   height: 5px;
   background-color: $body-color;
   margin-top: 5%;
@@ -109,7 +111,11 @@ section {
 //Chat Begins Here
 
 .chat-log {
-  margin-bottom: 5%
+  margin-bottom: 5%;
+
+    & :last-child(4) {
+      display: none !important;
+    }
 }
 
 
@@ -134,19 +140,26 @@ section {
       border-radius: 50%;
     }
 
-    & .text-bottom .user-name {
-  width: 166px;
-  height: 18px;
-  font-family: $body-font;
-  font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  color: #ff5d5d;
+    & .text-bottom {
+      position:relative;
+      left: -10%;
+
+           & .user-name {
+        width: 166px;
+        height: 18px;
+        font-family: $body-font;
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #ff5d5d;
 }
 
+    }
+
+    
 
 
 }
@@ -156,26 +169,37 @@ section {
 .user2 {
   width: $auto-width;
 
-    & ul {
+        & ul {
 
-    flex-direction: row-reverse;
+        flex-direction: row-reverse;
+
+            &  li.avatar img {
+                  width: 50px;
+                  height: 50px;
+                  background-color: rgba(0,0,0,0);
+                  position: relative;
+                  top: -35px;
+                  border-radius: 50%;
+          }
 
     }
 
-    & ul li.avatar img {
-      width: 50px;
-      height: 50px;
-      background-color: rgba(0,0,0,0);
-      position: relative;
-      top: -35px;
-      border-radius: 50%;
+    & .text-bottom {
+      position:relative;
+      left: 5%;
+
+           &  .user-name {
+                width: 166px;
+                height: 18px;
+                font-family: $body-font;
+                font-size: 18px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1;
+                color: #5da2ff;
+              }
     }
-
-    & .text-bottom .user-name {
-      
-      color: #5da2ff;
-}
-
 
 }
 
@@ -186,15 +210,16 @@ section {
 
 .chat_arrow_left {
 
+
     &:before {
       content: '';
       height: 0;
       position: absolute;
       width: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent; 
-      border-right:10px solid $main-color;
-      right: 65.1%;
+      border-top: $border-solid-10 transparent;
+      border-bottom: $border-solid-10 transparent; 
+      border-right: $border-solid-10 $main-color;
+      right: $arrow-position;
       top: 37%;
       display: block;
     }
@@ -204,10 +229,10 @@ section {
       height: 0;
       position: absolute;
       width: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent; 
-      border-right:10px solid $main-color;
-      right: 65.1%;
+      border-top: $border-solid-10 transparent;
+      border-bottom: $border-solid-10 transparent; 
+      border-right: $border-solid-10 $main-color;
+      right: $arrow-position;
       top: 84%;
       display: block;
     }
@@ -219,15 +244,16 @@ section {
 
 .chat_arrow_right {
 
+
      &:before {
         content: '';
         height: 0;
         position: absolute;
         width: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent; 
-        border-left:10px solid $color-white;
-        left: 65.1%;
+        border-top: $border-solid-10 transparent;
+        border-bottom: $border-solid-10 transparent; 
+        border-left: $border-solid-10 $color-white;
+        left: $arrow-position;
         top: 60.5%;
       }
 
@@ -236,10 +262,10 @@ section {
         height: 0;
         position: absolute;
         width: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent; 
-        border-left:10px solid $main-color;
-        left: 64.9%;
+        border-top: $border-solid-10 transparent;
+        border-bottom: $border-solid-10 transparent; 
+        border-left: $border-solid-10 $main-color;
+        left: $arrow-position;
         top: 107.5%;
   }
 
@@ -280,7 +306,6 @@ section {
 
 .text-bottom {
   position: relative;
-  left: -11%;
   top: -10px;
 
    & .time {
@@ -296,6 +321,11 @@ section {
       color: $text-color;
 
 }
+
+  & .user-name {
+    position: relative;
+    top: -5px;
+  }
 }
 
 // Timestamp and Clock
@@ -312,3 +342,4 @@ section {
   position: relative;
   top: -4px;
 }
+

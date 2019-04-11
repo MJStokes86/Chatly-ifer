@@ -1,21 +1,29 @@
 import './sass/main.scss';
-$(document).ready(function() {
+import './img/user1.jpg';
+import './img/user2.jpg';
+import './img/clock.png';
+
 
 
 
 //Fetching API Data 
 
-fetch('https://api.myjson.com/bins/1geede')
-	.then(response => response.json())
-	.then(function(data) {
+var url = 'https://api.myjson.com/bins/1geede';
+
+fetch(url)
+.then(response => response.json())
+.then(data =>  {
+
+
 
 // Setting the header date
 		
-		headerDate (getWeekDay(getDateNow(data.data.conversationDate).getDay()) + ',' + getMonth(getDateNow(data.data.conversationDate).getMonth()) + getDateNow(data.data.conversationDate).getDate() + ', ' + ((getDateNow(data.data.conversationDate).getYear()) + 1900))
+		headerDate (getWeekDay(getDateNow(data.data.conversationDate).getDay()) + ', ' + getMonth(getDateNow(data.data.conversationDate).getMonth())+ ' ' + getDateNow(data.data.conversationDate).getDate() + ',' + ' ' + ((getDateNow(data.data.conversationDate).getYear()) + 1900))
 
 		//Declaring the scope variable for user data
 
 		const scope = data.data.messages;
+		console.log(scope);
 
 		//Looping through the user data
 
@@ -23,52 +31,51 @@ fetch('https://api.myjson.com/bins/1geede')
 
             let user = i;
 
-			if (user.username == 'Mygel van Trable') {
-				user1( user.focused, user.image, user.message, getTimeStamp(user.timestamp), user.username);
+			if (user.username == "Mygel van Trabel") {
+
+				user1( user.focused, user.message, getTimeStamp(user.timestamp), user.username);
+
 			} else {
-				user2( user.focused, user.image, user.message, getTimeStamp(user.timestamp), user.username);
+
+				user2( user.focused, user.message, getTimeStamp(user.timestamp), user.username);
+
 			}
-			console.log(user.timestamp);
 
-
+		
 
 		});
 
-
-
-	});
 		
+
+		
+
+
+
+
+
+	}).catch( error => console.error(error));
+
+
 
 	//Creating Chat logs for HTML for User1 
 		
-	const user1 = (focused, image, message, timestamp, username) =>  {
-
-		
-
-		if (focused == true) {
-			$('#focused .message-box').css("box-shadow", "0 15px 50px 0 rgba(0,0,0,0.13)","background-color", "#ffffff");
-
- 		} else {
-			$('#focused .message-box').css("background-color", "#f3f3f3f3");
-
- 		}
-
+	const user1 = (focused, message, timestamp, username) =>  {
 
  	//Appending the HTML to the DOM
 
- 	$('.chat').innerHTML += 
+ 		__('chat').innerHTML += 
 
  		'<div class="chat-log user1">' +
  		'<ul>' +
  		'<li class="avatar">' +
- 		'<img src="'+ image + '" alt="Mygel van Trable">' +
+ 		'<img src="./img/user1.jpg" alt="Mygel van Trable">' +
  		'</li>' +
  		'<span class="chat_arrow_left"></span>' +
  		'<li class="message">' +
  		'<li class="message-box">' +
  		'<p class="text"> ' + message + '</p>' +
  		'<ul class="text-bottom">' +
- 		'<ul class="user-name">' + username + '</li>' +
+ 		'<li class="user-name">' + username + '</li>' +
  		'<li class="timestamp">' +
  		'<ul>' + 
  		'<li class="clock-icon">' +
@@ -88,38 +95,36 @@ fetch('https://api.myjson.com/bins/1geede')
 
 	//Creating Chat logs for HTML for User2
 
-	const user2 = (focused, image, message, timestamp, username) => {
+	const user2 = (focused, message, timestamp, username) => {
 		
 		if (focused == true) {
-			$('#focused .message-box').css("box-shadow", "0 15px 50px 0 rgba(0,0,0,0.13)","background-color", "#ffffff");
+			var styleFocused  = ' box-shadow: 0 15px 50px 0 rgba(0,0,0,0.13); ' + 'background-color: #fff;';
+			var styleArrow = 'border-right:10px solid #fff;';
 
- 		} else {
-			$('#focused .message-box').css("background-color", "#f3f3f3f3");
-
- 		}
+		} 
 
 
  	//Appending the HTML to the DOM
 
 
- 	$('.chat').innerHTML += 
+ 		__('chat').innerHTML += 
 
- 		'<div class="chat-log user1">' +
+ 		'<div class="chat-log user2">' +
  		'<ul>' +
  		'<li class="avatar">' +
- 		'<img src="'+ image + '" alt="Mygel van Trable">' +
+ 		'<img src="./img/user2.jpg" alt="Charlie Hemn">' +
  		'</li>' +
- 		'<span class="chat_arrow_left"></span>' +
+ 		'<span class="chat_arrow_right" style="'+ styleArrow +'"></span>' +
  		'<li class="message">' +
- 		'<li class="message-box">' +
+ 		'<li class="message-box" style= " '+ styleFocused +'">' +
  		'<p class="text"> ' + message + '</p>' +
  		'<ul class="text-bottom">' +
  		'<li class="timestamp">' +
  		'<ul>' + 
+ 		'<li class="time">' + '<p>' + timestamp + '</p>' + '</li>' +
  		'<li class="clock-icon">' +
  		'<img src="./img/clock.png" alt="clock-icon">' +
- 		'<li class="time">' + '<p>' + timestamp + '</p>' + '</li>' +
- 		'<ul class="user-name">' + username + '</li>' +
+ 		'<li class="user-name">' + username + '</li>' +
  		'</ul>' +
  		'</li>' +
  		'</ul>' +
@@ -133,7 +138,7 @@ fetch('https://api.myjson.com/bins/1geede')
 	 
 	 //Setting the Title Date
 	const headerDate = (date) => {
-		$('.header-date').innerHTML = date;
+		__('header-date').innerHTML = date;
 	}
 
 
@@ -163,38 +168,27 @@ fetch('https://api.myjson.com/bins/1geede')
 		let timeNow = getDateNow(time);
 		let hour = timeNow.getHours();
 		let minute = timeNow.getMinutes();
-
 		let day = 'AM';
 
-		switch (time) {
-			case (hour > 11) : day = 'PM';
-			break;
-			case (hour > 12) : hour = hour - 12;
-			break;
-			case (hour == 0) : hour = 12;
-			break;
-			case (hour < 10) : hour = "0" + hour;
-			break;
-			case (minute < 10) : minute = "0" + minute;
-			break;
-			
-		}
 		
-		const timeStamp = hour + ':' + minute + " " + 'day';
+		  if (hour   > 11) { day = "PM";            }
+		  if (hour   > 12) { hour = hour - 12;      }
+		  if (hour   == 0) { hour = 12;             }
+		  if (hour   < 10) { hour   = " " + hour;   }
+		  if (minute < 10) { minute = "0" + minute; }
+		
+		const timeStamp = hour + ':' + minute + " " + day;
 
 		return timeStamp;
 
 	}
 
-	//Declaring $ for the innerHTML
+	 // Setting up the innerHTML
 
-	// const __ = (className) => {
-	// 	return document.getElementsByClassName(className);
-	// }
+	const __ = (id) => {
+		return document.getElementById(id);
+	}
 
-
-
-});
 
 
 
