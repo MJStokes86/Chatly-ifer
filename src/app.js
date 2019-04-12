@@ -64,7 +64,7 @@ fetch(url)
 		
 	const user1 = (focused, message, timestamp, username) =>  {
 
- 	//Appending the HTML to the DOM
+ 	//Appending the HTML template to the DOM for user1
 
  		__('chat').innerHTML += 
 
@@ -97,7 +97,7 @@ fetch(url)
 		} 
 
 
- 	//Appending the HTML to the DOM
+ 	//Appending the HTML template to the DOM for user2
 
 
  		__('chat').innerHTML += 
