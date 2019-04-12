@@ -1,9 +1,13 @@
+/*=============================!!!!NOTE!!!!===============================*/
+
+// When I fetch the api json data, I get double the results. Using .forEach() method, I get double data printed to the HTML. The issue may have something to due with the WebPack config file. I couldn't figure it out but according to the Network tab in Chrome, I do see two fetch requests. One from VM and the other from app.js. They are both being printed to the HTML. You'll will see repeated messages once the page is loaded. 
+
+// Also the image url from the api isn't working. That's the reason why the image parameter isn't included from the data. 
+
+
+/*=================================================================*/
+
 import './sass/main.scss';
-import './img/user1.jpg';
-import './img/user2.jpg';
-import './img/clock.png';
-
-
 
 
 //Fetching API Data 
@@ -23,7 +27,6 @@ fetch(url)
 		//Declaring the scope variable for user data
 
 		const scope = data.data.messages;
-		console.log(scope);
 
 		//Looping through the user data
 
@@ -65,29 +68,19 @@ fetch(url)
 
  		__('chat').innerHTML += 
 
- 		'<div class="chat-log user1">' +
- 		'<ul>' +
- 		'<li class="avatar">' +
- 		'<img src="./img/user1.jpg" alt="Mygel van Trable">' +
- 		'</li>' +
- 		'<span class="chat_arrow_left"></span>' +
- 		'<li class="message">' +
- 		'<li class="message-box">' +
- 		'<p class="text"> ' + message + '</p>' +
- 		'<ul class="text-bottom">' +
- 		'<li class="user-name">' + username + '</li>' +
- 		'<li class="timestamp">' +
- 		'<ul>' + 
- 		'<li class="clock-icon">' +
- 		'<img src="./img/clock.png" alt="clock-icon">' +
- 		'<li class="time">' + '<p>' + timestamp + '</p>' + '</li>' +
- 		'</ul>' +
- 		'</li>' +
- 		'</ul>' +
- 		'</div>' +
- 		'</li>' +
- 		'</ul>' +
- 		'</div>';
+	 		'<div class="chat-log user1">' + 
+	 		'<ul>' + '<li class="avatar">' + 
+	 		'<img src="../img/user1.jpg" alt="Mygel van Trable">' 
+	 		+'</li>' + '<span class="chat_arrow_left"></span>' +
+	 		'<li class="message">' +'<li class="message-box">' +
+	 		'<p class="text"> ' + message + '</p>' +
+	 		'<ul class="text-bottom">' +'<li class="user-name">' + username + '</li>' + '<li class="timestamp">' +
+	 		'<ul>' + '<li class="clock-icon">' + 
+	 		'<img src="../img/clock.png" alt="clock-icon">' + 
+	 		'<li class="time">' + 
+	 		'<p>' + timestamp + '</p>' + '</li>' +
+	 		'</ul>' +'</li>' +'</ul>' +'</div>' +'</li>' +'</ul>' +
+	 		'</div>';
 
 
 		
@@ -109,29 +102,19 @@ fetch(url)
 
  		__('chat').innerHTML += 
 
- 		'<div class="chat-log user2">' +
- 		'<ul>' +
- 		'<li class="avatar">' +
- 		'<img src="./img/user2.jpg" alt="Charlie Hemn">' +
- 		'</li>' +
- 		'<span class="chat_arrow_right" style="'+ styleArrow +'"></span>' +
- 		'<li class="message">' +
- 		'<li class="message-box" style= " '+ styleFocused +'">' +
- 		'<p class="text"> ' + message + '</p>' +
- 		'<ul class="text-bottom">' +
- 		'<li class="timestamp">' +
- 		'<ul>' + 
- 		'<li class="time">' + '<p>' + timestamp + '</p>' + '</li>' +
- 		'<li class="clock-icon">' +
- 		'<img src="./img/clock.png" alt="clock-icon">' +
- 		'<li class="user-name">' + username + '</li>' +
- 		'</ul>' +
- 		'</li>' +
- 		'</ul>' +
- 		'</div>' +
- 		'</li>' +
- 		'</ul>' +
- 		'</div>';
+	 		'<div class="chat-log user2">' + '<ul>' +
+	 		'<li class="avatar">' + 
+	 		'<img src="../img/user2.jpg" alt="Charlie Hemn">' +
+	 		'</li>' +'<span class="chat_arrow_right" style="'+ styleArrow +'"></span>' + '<li class="message">' +
+	 		'<li class="message-box" style= " '+ styleFocused +'">' +'<p class="text"> ' + message + '</p>' +
+	 		'<ul class="text-bottom">' +'<li class="timestamp">' +
+	 		'<ul>' + '<li class="time">' + '<p>' + timestamp + 
+	 		'</p>' + '</li>' +'<li class="clock-icon">' +
+	 		'<img src="../img/clock.png" alt="clock-icon">' + 
+	 		'<li class="user-name">' + username + '</li>' +
+	 		'</ul>' + '</li>' + '</ul>' + '</div>' + '</li>' + 
+	 		'</ul>' +
+	 		'</div>';
 
 
 	}
