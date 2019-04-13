@@ -1,4 +1,8 @@
+/*=============================!!!!NOTE!!!!===============================*/
 
+// The image url from the api isn't working. The images are from the PSD file and created a path for them.  
+
+/*=================================================================*/
 
 import './sass/main.scss';
 
